@@ -3,7 +3,7 @@
 Clone this repository and follow the steps below.
 
 Go to the **backend folder** and run the command **docker-compose up -d** and wait for it to finish.
-After the previous run, go to **frontend folder** and run docker-compose up -d too.
+After the previous run, go to **frontend folder** and run **docker-compose up -d** too.
 
 The API will respond on **PORT 3000** and the application will respond on **PORT 3001**.
 
