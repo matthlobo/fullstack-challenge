@@ -32,7 +32,28 @@ class BookController {
           name: {
             [Op.like]: "%" + name + "%",
           },
+        },        
+        limit: 3
+      });
+      return res.status(200).json(book);
+    } catch (error) {
+      return res.status(500).json(error.message);
+    }
+  }
+
+  static async getBookByNamePaginated(req, res) {
+    const { name, page } = req.params;
+    const offset = page * 2;
+    const limit = 2;
+    try {
+      const book = await database.Books.findAll({
+        where: {
+          name: {
+            [Op.like]: "%" + name + "%",
+          },
         },
+        offset: Number(offset),
+        limit: Number(limit)
       });
       return res.status(200).json(book);
     } catch (error) {

@@ -6,6 +6,7 @@ import { Row, Col } from "react-bootstrap";
 
 const Books = ({ filteredBook }) => {
   const [books, setBooks] = React.useState(null);
+  const [page, setPage] = React.useState(0);
 
   React.useEffect(() => {
     async function fetchAllBooks() {
@@ -14,13 +15,30 @@ const Books = ({ filteredBook }) => {
           setBooks(response.data);
         });
       } else {
-        api.get("book/" + filteredBook).then((response) => {
+        api.get(`book/${filteredBook}/${page}`).then((response) => {
           setBooks(response.data);
         });
       }
     }
     fetchAllBooks();
+    setPage(0);
   }, [filteredBook]);
+
+  React.useEffect(() => {
+    api.get(`book/${filteredBook}/${page}`).then((response) => {
+      if(!response.data){
+        console.log('Ta vazio')
+      }else {
+        setBooks((books) => [...books, ...response.data]);
+      }
+      console.log(response.data);
+    });
+  }, [page]);
+
+  const loadMore = () => {
+    setPage((page) => page + 1);
+    console.log(page);
+  };
 
   if (books === null) return null;
   return (
@@ -48,6 +66,11 @@ const Books = ({ filteredBook }) => {
             </Col>
           ))}
       </Row>
+      <div className="col-md-auto">
+        <button onClick={loadMore} className="btn btn-primary">
+          Load More
+        </button>
+      </div>
     </div>
   );
 };

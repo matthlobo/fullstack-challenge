@@ -20,7 +20,7 @@ const Home = () => {
   }
 
   async function filtering(bookName) {
-    api.get("book/" + bookName).then((response) => {
+    api.get(`book/${bookName}`).then((response) => {
       try {
         setSearch(bookName);
       } catch (error) {
