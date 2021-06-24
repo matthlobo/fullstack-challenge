@@ -1,10 +1,13 @@
 # Fullstack Challenge
 
-Clone this repository and start our challenge **right now**.
+Clone this repository and follow the steps below.
 
-Use **React** or **React Native** to develop the frontend app. In backend, use **NodeJS**.
+Go to the **backend folder** and run the command **docker-compose up -d** and wait for it to finish.
+After the previous run, go to **frontend folder** and run docker-compose up -d too.
 
-**NOTE:** If you have any questions regarding the test, just send us your question on our Discord's channel **#technical-challenge** on [Foton Discord](https://discord.gg/uw55aDewNf).
+The API will respond on **PORT 3000** and the application will respond on **PORT 3001**.
+
+**NOTE:** If you have any questions, just send me your question on my Twitter DM @xMatheusLobo.
 
 ## Design/Screens
 https://www.figma.com/file/KFElqzD983WNyvMY1SaF0c/book-app?node-id=0%3A1
