@@ -1,0 +1,36 @@
+.detail-background{  
+  background-repeat: round;
+  background-repeat-y: no-repeat;
+}
+
+.back-arrow{
+  font-size: 40px;
+}
+
+.book-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.about-book-author {
+  font-size: 18px;
+  font-weight: 500;
+  color: #fe7380;
+}
+
+.about-book-image {
+  height: 250px;
+  box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 30%);
+}
+
+.about-text {
+  font-size: 14px;
+  white-space: break-spaces;
+}
+
+@media (max-width: 600px)
+{
+  .detail-background{  
+    background-image: url('./oval.png') !important;
+   }
+}

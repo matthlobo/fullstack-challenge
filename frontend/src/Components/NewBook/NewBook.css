@@ -1,0 +1,32 @@
+.title-new-book {
+  color: #fe7380;
+  font-size: 30px;
+}
+
+.alert-new-book {
+  /*opacity: 0;
+  transition: all 250ms linear 2s;*/
+  display: none;
+}
+
+.label-new-book {
+  font-weight: 700;
+}
+
+.input-new-book {
+  box-shadow: 0 10px 6px -6px rgb(0 0 0 / 30%);
+  min-width: 300px;
+  margin-bottom: 0.5rem;
+}
+
+.textarea-new-book {
+  resize: none;
+}
+
+.btn-new-book {
+  background-color: #fe7380;
+  color: #fff;
+  min-width: 340px;
+  margin-top: 2rem;
+  box-shadow: 0 10px 6px -6px rgb(0 0 0 / 30%);
+}

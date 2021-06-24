@@ -1,0 +1,15 @@
+.menu-mobile{
+    bottom: 0;
+    margin-top: 3rem;
+    background: #fff;   
+    box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 30%);
+    width: 100%;    
+    position: fixed;
+    font-size: 18px;
+}
+
+.nav-menu-mobile{
+    display: flex !important;
+    text-decoration: none;
+    width: 100vw;
+}

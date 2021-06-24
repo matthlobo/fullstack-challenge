@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  api:
+    container_name: foton-frontend
+    build:
+      dockerfile: Dockerfile
+      context: .
+    restart: always
+    volumes:      
+      - ".:/usr/app/front"
+      - "/usr/app/front/node_modules"
+    ports:
+      - 3001:3001
+    environment:
+      - NODE_ENV=development

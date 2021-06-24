@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding:0;
+}
+
+.book-image{
+    width: 100px;
+    height: 150px;
+    box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 30%);
+}
+
+.book-title{
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+}
+.book-author{
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+}

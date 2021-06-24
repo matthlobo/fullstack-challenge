@@ -1,0 +1,15 @@
+
+.welcome-text{
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.welcome-text-username{
+  color: #fe7380;
+}
+
+body{
+  background-color: #fefbf8 !important;
+  font-family: "Open Sans", sans-serif !important;
+}
+

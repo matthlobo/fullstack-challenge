@@ -1,0 +1,30 @@
+.book-options {
+  bottom: 30px;
+  background: #fff;
+  box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 30%);
+  position: fixed;
+  font-size: 18px;
+  width: 70%;
+  margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
+  left: 0;
+  right: 0;
+}
+
+.nav-options {
+  display: flex !important;
+  text-decoration: none;
+  width: 95%;
+}
+
+@media screen and (min-device-width: 300px) and (max-device-width: 767px) {
+  .book-options {
+    width: 90%;
+  }
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1025px) {
+  .book-options {
+    width: 90%;
+    margin-left: 5%;
+  }
+}
