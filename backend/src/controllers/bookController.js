@@ -3,9 +3,30 @@ const { Op } = require("sequelize");
 
 class BookController {
   static async getBooks(req, res) {
+    const { name, page, size } = req.query;
     try {
-      const allBooks = await database.Books.findAll();
-      return res.status(200).json(allBooks);
+      let books = [];
+      let totalBooks = 0;
+      if (!!name && !!page && !!size) {
+        const filteredBooks = await database.Books.findAll({
+          where: {
+            name: {
+              [Op.like]: "%" + name + "%",
+            },
+          },
+        });
+
+        totalBooks = filteredBooks.length;
+        books = filteredBooks.slice((page - 1) * size, page * size);
+
+      } else {
+        books = await database.Books.findAll();
+        totalBooks = books.length;    
+      }
+      return res.status(200).json({
+        books,
+        totalBooks
+      });
     } catch (error) {
       return res.status(500).json(error.message);
     }
@@ -25,15 +46,15 @@ class BookController {
 
   static async getBookByName(req, res) {
     const { name } = req.params;
-    
+
     try {
       const book = await database.Books.findAll({
         where: {
           name: {
             [Op.like]: "%" + name + "%",
           },
-        },        
-        limit: 3
+        },
+        limit: 3,
       });
       return res.status(200).json(book);
     } catch (error) {
@@ -42,20 +63,23 @@ class BookController {
   }
 
   static async getBookByNamePaginated(req, res) {
-    const { name, page } = req.params;
-    const offset = page * 2;
-    const limit = 2;
+    const { name, index, quantity } = req.query;
     try {
-      const book = await database.Books.findAll({
+      const filteredBooks = await database.Books.findAll({
         where: {
           name: {
             [Op.like]: "%" + name + "%",
           },
         },
-        offset: Number(offset),
-        limit: Number(limit)
       });
-      return res.status(200).json(book);
+
+      const totalFilteredBooks = filteredBooks.length;
+
+      const books = filteredBooks.slice(index, quantity);
+      return res.status(200).json({
+        books,
+        totalFilteredBooks,
+      });
     } catch (error) {
       return res.status(500).json(error.message);
     }

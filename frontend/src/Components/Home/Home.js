@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import SearchBar from "../SearchBar/SearchBar.js";
 import Books from "../Books/Books.js";
 import MenuMobile from "../MenuMobile/MenuMobile";
-import api from "../../services/api.js";
 
 const Home = () => {
   const [search, setSearch] = React.useState("");
@@ -13,20 +12,10 @@ const Home = () => {
   async function handleFilter({ target }) {
     let bookName = target.value;
     if (bookName !== "") {
-      filtering(bookName);
+      setSearch(bookName);
     } else {
       setSearch("");
     }
-  }
-
-  async function filtering(bookName) {
-    api.get(`book/${bookName}`).then((response) => {
-      try {
-        setSearch(bookName);
-      } catch (error) {
-        console.log(error.message);
-      }
-    });
   }
 
   React.useEffect(async () => {
@@ -46,7 +35,7 @@ const Home = () => {
   return (
     <div>
       <div className="container pb-4">
-        <SearchBar id="SearchBar" value={search} filter={handleFilter} />
+        <SearchBar id="SearchBar"  filter={handleFilter} />
         <p className="welcome-text">
           Hi, <span className="welcome-text-username">{name}</span>
         </p>

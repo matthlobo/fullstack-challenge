@@ -13,7 +13,7 @@ const About = () => {
 
   React.useEffect(() => {
     async function fetchDetailedBook() {
-      api.get("books/" + params.id).then((response) => {
+      api.get(`books/${params.id}`).then((response) => {
         setBook(response.data);
       });
     }
