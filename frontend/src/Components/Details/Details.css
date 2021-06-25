@@ -12,18 +12,18 @@
   font-weight: 600;
 }
 
-.about-book-author {
+.details-book-author {
   font-size: 18px;
   font-weight: 500;
   color: #fe7380;
 }
 
-.about-book-image {
+.details-book-image {
   height: 250px;
   box-shadow: 1px 1px 6px 1px rgb(0 0 0 / 30%);
 }
 
-.about-text {
+.details-text {
   font-size: 14px;
   white-space: break-spaces;
 }

@@ -18,14 +18,13 @@ class BookController {
 
         totalBooks = filteredBooks.length;
         books = filteredBooks.slice((page - 1) * size, page * size);
-
       } else {
         books = await database.Books.findAll();
-        totalBooks = books.length;    
+        totalBooks = books.length;
       }
       return res.status(200).json({
         books,
-        totalBooks
+        totalBooks,
       });
     } catch (error) {
       return res.status(500).json(error.message);
@@ -39,47 +38,6 @@ class BookController {
         where: { id: Number(id) },
       });
       return res.status(200).json(book);
-    } catch (error) {
-      return res.status(500).json(error.message);
-    }
-  }
-
-  static async getBookByName(req, res) {
-    const { name } = req.params;
-
-    try {
-      const book = await database.Books.findAll({
-        where: {
-          name: {
-            [Op.like]: "%" + name + "%",
-          },
-        },
-        limit: 3,
-      });
-      return res.status(200).json(book);
-    } catch (error) {
-      return res.status(500).json(error.message);
-    }
-  }
-
-  static async getBookByNamePaginated(req, res) {
-    const { name, index, quantity } = req.query;
-    try {
-      const filteredBooks = await database.Books.findAll({
-        where: {
-          name: {
-            [Op.like]: "%" + name + "%",
-          },
-        },
-      });
-
-      const totalFilteredBooks = filteredBooks.length;
-
-      const books = filteredBooks.slice(index, quantity);
-      return res.status(200).json({
-        books,
-        totalFilteredBooks,
-      });
     } catch (error) {
       return res.status(500).json(error.message);
     }

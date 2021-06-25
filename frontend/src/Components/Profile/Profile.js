@@ -24,7 +24,7 @@ const Profile = () => {
     setName(loggedUserName);
   }, [user]);
 
-  function handleLogout() {   
+  function handleLogout() {
     localStorage.clear();
     navigate("/");
   }

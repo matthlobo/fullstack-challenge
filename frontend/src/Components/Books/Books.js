@@ -47,7 +47,7 @@ const Books = ({ filteredBook }) => {
         {books.map((item) => (
           <Col xs="4" lg="2" sm="2" key={item.id}>
             <div className="book-card">
-              <Link to={`/about/${item.id}`}>
+              <Link to={`/details/${item.id}`}>
                 {item.url ? (
                   <img src={item.url} className="book-image" />
                 ) : (

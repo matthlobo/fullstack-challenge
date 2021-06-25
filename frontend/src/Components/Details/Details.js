@@ -1,12 +1,12 @@
 import React from "react";
-import "./About.css";
+import "./Details.css";
 import { useParams, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
 import BookOptions from "../BookOptions/BookOptions";
 import { BsArrowLeft } from "react-icons/bs";
 import api from "../../services/api";
 
-const About = () => {
+const Details = () => {
   const params = useParams();
 
   const [book, setBook] = React.useState(null);
@@ -36,15 +36,19 @@ const About = () => {
           </Link>
           <div className="row justify-content-center text-center">
             <Col>
-              <img src={book.url} className="about-book-image" />
+              {book.url ? (
+                <img src={book.url} className="details-book-image" />
+              ) : (
+                <img src={book.url} className="details-book-image" />
+              )}
             </Col>
           </div>
         </div>
       </div>
       <div className="container pb-4">
         <h1 className="p-1">{book.name}</h1>
-        <p className="about-book-author pl-2">{book.author}</p>
-        <p className="about-text py-3 pl-2 text-justify">{book.description}</p>
+        <p className="details-book-author pl-2">{book.author}</p>
+        <p className="details-text py-3 pl-2 text-justify">{book.description}</p>
       </div>
 
       <div className="p-2 my-4 mx-4">
@@ -54,4 +58,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Details;

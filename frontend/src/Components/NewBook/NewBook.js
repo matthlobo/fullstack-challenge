@@ -14,7 +14,7 @@ const NewBook = () => {
     description: "",
   });
 
-  const [response, setResponse] = React.useState(null);
+  const [newBookAdded, setNewBookAdded] = React.useState(null);
 
   let navigate = useNavigate();
 
@@ -28,20 +28,16 @@ const NewBook = () => {
   function submitNewBook(event) {
     event.preventDefault();
     api.post("books", form).then((response) => {
-      setResponse(response.data);
-      //console.log(response.data);
+      let alert = document.querySelector(".alert");
+      if (response.data) {
+        setNewBookAdded(true);
+        setForm({ name: "", author: "", url: "", description: "" });
+        setTimeout(function () {
+          setNewBookAdded(false);
+        }, 5000);
+      }
     });
   }
-
-  React.useEffect(() => {
-    let alert = document.querySelector(".alert");
-    if (alert) {
-      setTimeout(function () {
-        alert.classList.add("alert-new-book");
-      }, 5000);
-      //setForm({ name: "", author: "", url: "", description: "" });
-    }
-  }, [response]);
 
   function handleInput({ target }) {
     const { id, value } = target;
@@ -57,7 +53,7 @@ const NewBook = () => {
           </p>
         </Link>
         <p className="pt-2 px-4 title-new-book">Add a new book</p>
-        {response && response.ok && (
+        {newBookAdded && (
           <div className="alert alert-success mt-4" role="alert">
             <p>The book has been successfully inserted</p>
           </div>

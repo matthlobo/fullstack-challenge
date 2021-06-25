@@ -3,12 +3,6 @@
   font-size: 30px;
 }
 
-.alert-new-book {
-  /*opacity: 0;
-  transition: all 250ms linear 2s;*/
-  display: none;
-}
-
 .label-new-book {
   font-weight: 700;
 }

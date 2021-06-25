@@ -23,8 +23,8 @@ const Home = () => {
     var loggedUserName = localStorage.getItem("name");
 
     if (!loggedUser) {
-      var loggedUser = window.localStorage.setItem("username", "anon");
-      var loggedUserName = window.localStorage.setItem("name", "John Doe");
+      loggedUser = window.localStorage.setItem("username", "anonymous");
+      loggedUserName = window.localStorage.setItem("name", "Guest");
     }
 
     setUser(loggedUser);
@@ -35,7 +35,7 @@ const Home = () => {
   return (
     <div>
       <div className="container pb-4">
-        <SearchBar id="SearchBar"  filter={handleFilter} />
+        <SearchBar id="SearchBar" filter={handleFilter} />
         <p className="welcome-text">
           Hi, <span className="welcome-text-username">{name}</span>
         </p>

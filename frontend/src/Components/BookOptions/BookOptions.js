@@ -23,14 +23,14 @@ const BookOptions = () => {
           <Col style={{ textAlign: "center" }}>
             <Link to="/error" className="text-dark">
               <BsMusicNoteBeamed />
-              <span className="text-center pl-2">Listen</span>
+              <span className="text-center font-weight-bold pl-2">Listen</span>
             </Link>
           </Col>
 
           <Col style={{ textAlign: "center" }}>
             <Link to="/error" className="text-dark">
               <BsUpload />
-              <span className="text-center pl-2">Share</span>
+              <span className="text-center font-weight-bold pl-2">Share</span>
             </Link>
           </Col>
         </nav>

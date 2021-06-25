@@ -26,8 +26,8 @@ const Auth = () => {
   }
 
   function handleAnon() {
-    var loggedUser = window.localStorage.setItem("username", "anon");
-    var loggedUserName = window.localStorage.setItem("name", "John Doe");
+    window.localStorage.setItem("username", "anonymous");
+    window.localStorage.setItem("name", "Guest");
   }
 
   return (
