@@ -51,7 +51,7 @@ const Books = ({ filteredBook }) => {
                 {item.url ? (
                   <img src={item.url} className="book-image" />
                 ) : (
-                  <img src="GenericBook.png" className="book-image" />
+                  <img src="GenericBook.PNG" className="book-image" />
                 )}
                 <p key={item.name} className="book-title">
                   {item.name}
