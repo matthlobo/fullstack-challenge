@@ -21,6 +21,9 @@ const Details = () => {
     fetchDetailedBook();
   }, []);
 
+  const genericImage = window.location.origin + "/GenericBook.png";
+
+
   if (book === null) return null;
   return (
     <div>
@@ -39,7 +42,7 @@ const Details = () => {
               {book.url ? (
                 <img src={book.url} className="details-book-image" />
               ) : (
-                <img src={book.url} className="details-book-image" />
+                <img src={genericImage} className="details-book-image" />
               )}
             </Col>
           </div>
@@ -48,7 +51,9 @@ const Details = () => {
       <div className="container pb-4">
         <h1 className="p-1">{book.name}</h1>
         <p className="details-book-author pl-2">{book.author}</p>
-        <p className="details-text py-3 pl-2 text-justify">{book.description}</p>
+        <p className="details-text py-3 pl-2 text-justify">
+          {book.description}
+        </p>
       </div>
 
       <div className="p-2 my-4 mx-4">

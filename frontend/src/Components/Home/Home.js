@@ -8,14 +8,21 @@ const Home = () => {
   const [search, setSearch] = React.useState("");
   const [user, setUser] = React.useState(null);
   const [name, setName] = React.useState(null);
+  const [filterTimerId, setFilterTimerId] = React.useState(null);
 
-  async function handleFilter({ target }) {
-    let bookName = target.value;
-    if (bookName !== "") {
-      setSearch(bookName);
-    } else {
-      setSearch("");
-    }
+  async function handleDebounceFilter({ target }) {
+    clearTimeout(filterTimerId);
+
+    setFilterTimerId(
+      setTimeout(() => {
+        let bookName = target.value;
+        if (bookName !== "") {
+          setSearch(bookName);
+        } else {
+          setSearch("");
+        }
+      }, 400)
+    );
   }
 
   React.useEffect(async () => {
@@ -35,7 +42,7 @@ const Home = () => {
   return (
     <div>
       <div className="container pb-4">
-        <SearchBar id="SearchBar" filter={handleFilter} />
+        <SearchBar id="SearchBar" filter={handleDebounceFilter} />
         <p className="welcome-text">
           Hi, <span className="welcome-text-username">{name}</span>
         </p>

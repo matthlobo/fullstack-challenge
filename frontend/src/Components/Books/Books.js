@@ -70,7 +70,7 @@ const Books = ({ filteredBook }) => {
           ? (<p></p>) 
           : (<div className="row mb-5 mb-2">
               <div className="col-md-auto d-flex justify-content-center">
-                <button onClick={loadMore} className="btn btn-primary">
+                <button onClick={loadMore} className="btn btn-load-more">
                   Load More
                 </button>
               </div>

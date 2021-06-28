@@ -19,3 +19,12 @@
     font-weight: 500;
     color: #333;
 }
+
+
+.btn-load-more{
+  background-color: #fe7380;
+  color: #fff;
+  min-width: 120px;
+  margin-top: 2rem;
+  box-shadow: 0 10px 6px -6px rgb(0 0 0 / 30%);
+}
