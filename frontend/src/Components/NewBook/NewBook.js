@@ -25,6 +25,13 @@ const NewBook = () => {
     }
   }, []);
 
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+
   function submitNewBook(event) {
     event.preventDefault();
     api.post("books", form).then((response) => {
@@ -32,6 +39,7 @@ const NewBook = () => {
       if (response.data) {
         setNewBookAdded(true);
         setForm({ name: "", author: "", url: "", description: "" });
+        scrollToTop();
         setTimeout(function () {
           setNewBookAdded(false);
         }, 5000);

@@ -21,7 +21,7 @@ const Details = () => {
     fetchDetailedBook();
   }, []);
 
-  const genericImage = window.location.origin + "/GenericBook.png";
+  const genericImage = window.location.origin + "/GenericBook.PNG";
 
 
   if (book === null) return null;
